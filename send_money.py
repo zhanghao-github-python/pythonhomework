@@ -18,7 +18,7 @@ import money
 def send_money():
     money.get_salary = True
     money.get_salary_status = money.get_salary
-    print(f"当前礼物状态为:{money.get_salary_status}")
+    print(f"当前是否发工资状态为:{money.get_salary_status}")
     print('工资到账，好开心！')
 
 
