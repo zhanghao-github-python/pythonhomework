@@ -13,22 +13,25 @@ E-mail: zh13997821732@163.com
 
 """
 import pytest
-from pytest_parctice import calculate
+from testing_1.pythoncode import calculate
+import logging
+
+log = logging.getLogger()
 
 
 class Test_calculate:
     def setup_class(self):
-        print('测试开始')
+        log.info('测试开始')
 
     def teardown_class(self):
-        print('测试结束啦')
+        log.info('测试结束啦')
 
     def setup(self):
         self.calculate = calculate.Calculator()
-        print('开始计算')
+        log.info('开始计算')
 
     def teardown(self):
-        print('结束计算')
+        log.info('结束计算')
 
     # 加法测试
     @pytest.mark.parametrize("a, b, expect",
@@ -40,7 +43,11 @@ class Test_calculate:
     # 除法测试
 
     @pytest.mark.parametrize("a, b, expect",
-                             [[2, 2, 1], [4000, 1000, 4], [-1, -2, 0.5], [0.5, 0.1, 5], [-1, 1, -1]],
+                             [[2, 2, 1], [4000, 1000, 4], [-1, -2, 0.5], [0.5, 0.1, 5], [-1, 0, -1]],
                              ids=['int', 'bignum', 'minus', "float", 'zero'])
     def test_division(self, a, b, expect):
-        assert self.calculate.div(a, b) == expect
+
+        try:
+            assert self.calculate.div(a, b) == expect
+        except ZeroDivisionError:
+            log.info('division by zero')
