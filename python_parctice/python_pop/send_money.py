@@ -12,7 +12,7 @@ E-mail: zh13997821732@163.com
 ================================================================================
 
 """
-import money
+from python_parctice.python_pop import money
 
 
 def send_money():
