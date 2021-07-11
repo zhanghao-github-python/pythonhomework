@@ -1,0 +1,22 @@
+#列表
+#- A
+#- b
+#- cv
+#字典
+#name :  'zh'
+#age : '25'
+#列表嵌套列表
+#-
+#  - a
+#  - b
+#  - c
+#复杂数组
+#companies:
+#    -
+#        id: 1
+#        name: company1
+#        price: 200W
+#    -
+#        id: 2
+#        name: company2
+#        price: 500W

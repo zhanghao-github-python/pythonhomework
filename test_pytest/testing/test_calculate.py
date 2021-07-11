@@ -12,13 +12,14 @@ E-mail: zh13997821732@163.com
 ================================================================================
 
 """
+import allure
 import pytest
 from test_pytest.pythoncode import calculate
 import logging
 
 log = logging.getLogger()
 
-
+@allure.feature('计算器')
 class Test_calculate:
     def setup_class(self):
         log.info('测试开始')

@@ -1,0 +1,4 @@
+[32mINFO    [0m root:test_calculate.py:32 开始计算
+[32mINFO    [0m root:test_calculate.py:54 division by zero
+[32mINFO    [0m root:test_calculate.py:35 结束计算
+[32mINFO    [0m root:test_calculate.py:28 测试结束啦
