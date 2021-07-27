@@ -72,7 +72,7 @@ class Test_calculate:
 
     @allure.title('计算加法中字符串和数字相加情况')
     @allure.story('相加失败，预期会抛异常')
-    def test_add_error(self):
+    def test_add_error(self,get_calc_object):
         with pytest.raises(TypeError):
             result = 'a' + 1
 

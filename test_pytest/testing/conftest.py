@@ -31,7 +31,7 @@ log = logging.getLogger()
 from test_pytest.pythoncode import calculate
 
 
-@pytest.fixture(scope='class')
+@pytest.fixture(scope='function')
 def get_calc_object():
     # setup
     logging.info("开始测试")

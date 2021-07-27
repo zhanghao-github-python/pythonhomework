@@ -39,12 +39,13 @@ class Animal:
 class cat(Animal):
 
     def __init__(self, name, color, age, gender):
-        self.hair = '短发'
+        self.hair1 = '短发'
+
         super().__init__(name, color, age, gender)
 
     def catch_mice(self):
         if self.age >= 1:
-            print(f"我是一只{self.color}的{self.gender}猫，我叫{self.name},我今年{self.age}岁了，我的毛发是{self.hair}的，我今天抓到了老鼠")
+            print(f"我是一只{self.color}的{self.gender}猫，我叫{self.name},我今年{self.age}岁了，我的毛发是{self.hair1}的，我今天抓到了老鼠")
         else:
             print('年龄小，抓不到老鼠~')
 
