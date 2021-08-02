@@ -113,7 +113,7 @@ class Test_Add_Member:
         sleep(3)
         a = driver.find_element_by_xpath(f'//span[text()="{accountzh}"]')
         try:
-
+            #获取文本值和随机的账号名字做断言
             assert str(accountzh) == str(a.text)
             print('添加成功')
         except Exception as f:
