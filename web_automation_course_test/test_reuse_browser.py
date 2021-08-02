@@ -25,6 +25,14 @@ from selenium.webdriver.chrome.options import Options
 import random
 
 
+def get_datas():
+    # 打开yml文件 这种表示方式防止数据中有中文存在乱码情况
+    with open('../datas/information.yml', "r", encoding="utf-8") as f:
+        # 读取yml文件中的内容
+        data = yaml.safe_load(f)
+    return data
+
+
 class Test_Add_Member:
     # @pytest.mark.skip
     def get_random_email(self):
@@ -38,9 +46,9 @@ class Test_Add_Member:
 
     def get_random_number(self):
         num1 = ''
-        #预置12位数的账号
+        # 预置12位数的账号
         for i in range(12):
-            #取12个数字并拼接
+            # 取12个数字并拼接
             num = (random.randint(0, 9))
             s = str(random.choice([num]))
             num1 += s
@@ -60,10 +68,13 @@ class Test_Add_Member:
         accountzh = account + 'zh'
         return accountzh
 
+    # @pytest.mark.parametrize("name,account,email1", get_datas()['datas'])
+    # def test_remote_chrome(self, name, account, email1):
     def test_remote_chrome(self):
         """
         复用浏览器到添加成员界面
         """
+
         email = self.get_random_email()
         number = self.get_random_number()
         accountzh = self.get_random_account()
@@ -82,12 +93,29 @@ class Test_Add_Member:
         sleep(3)
         # 输入姓名
         driver.find_element_by_id('username').send_keys(accountzh)
+        # driver.find_element_by_id('username').send_keys(name)
         sleep(1)
         # 输入账号
         driver.find_element_by_css_selector('#memberAdd_acctid').send_keys(number)
+        # driver.find_element_by_css_selector('#memberAdd_acctid').send_keys(account)
         sleep(1)
-        #输入邮箱
+        # 输入邮箱
         driver.find_element_by_xpath('//input[@name="alias"]').send_keys(email)
-        sleep(5)
-        driver.find_element_by_xpath('//*[@id="js_contacts64"]/div/div[2]/div/div[4]/div/form/div[3]/a[2]').click()
+        # driver.find_element_by_xpath('//input[@name="alias"]').send_keys(email1)
+        sleep(2)
+        # 定位女
+        driver.find_element_by_xpath('//form//label[2]/input').click()
+        sleep(2)
+        # 定位上级单选框
+        driver.find_element_by_xpath('//form//div/label/input[@class="ww_radio js_identity_stat"]').click()
+        sleep(2)
+        driver.find_element_by_link_text('保存').click()
         sleep(3)
+        a = driver.find_element_by_xpath(f'//span[text()="{accountzh}"]')
+        try:
+
+            assert str(accountzh) == str(a.text)
+            print('添加成功')
+        except Exception as f:
+            print(f'添加失败，错误信息是{f}')
+        sleep(5)
