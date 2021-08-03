@@ -20,6 +20,7 @@ import selenium
 import yaml
 from selenium import webdriver
 import pytest
+from selenium.webdriver import TouchActions, ActionChains
 
 from selenium.webdriver.chrome.options import Options
 import random
@@ -68,16 +69,26 @@ class Test_Add_Member:
         accountzh = account + 'zh'
         return accountzh
 
+    def get_department_name(self):
+        first_name = ["王", "李", "张", "刘", "赵", "蒋", "孟", "陈", "徐", "杨", "沈", "马", "高", "殷", "上官", "钟", "常"]
+        name2 = random.choice(first_name)
+        head = random.randint(0xb0, 0xf7)
+        body = random.randint(0xa1, 0xfe)
+        val = f'{head:x} {body:x}'
+        str1 = name2 + (bytes.fromhex(val).decode('gb2312')) + '部门'
+        return str1
+
     # @pytest.mark.parametrize("name,account,email1", get_datas()['datas'])
     # def test_remote_chrome(self, name, account, email1):
     def test_remote_chrome(self):
         """
         复用浏览器到添加成员界面
         """
+        departmentname = self.get_department_name()  # 部门
+        email = self.get_random_email()  # 邮箱
+        number = self.get_random_number()  # 账号
+        accountzh = self.get_random_account()  # 姓名
 
-        email = self.get_random_email()
-        number = self.get_random_number()
-        accountzh = self.get_random_account()
         # 实例化 options
         option = Options()
         # 设定chrome debug 模式的一个地址
@@ -85,6 +96,7 @@ class Test_Add_Member:
         option.debugger_address = "127.0.0.1:9222"
         # 实例化一个driver，driver 中设定了刚刚的debuggeraddress属性
         driver = webdriver.Chrome(options=option)
+        driver.implicitly_wait(30)
         # 获取添加成员的url
         driver.get("https://work.weixin.qq.com/wework_admin/loginpage_wx?")
         time.sleep(3)
@@ -119,3 +131,44 @@ class Test_Add_Member:
         except Exception as f:
             print(f'添加失败，错误信息是{f}')
         sleep(5)
+        #                    添加部门操作
+        driver.get('https://work.weixin.qq.com/wework_admin/frame#index')  # 返回首页
+        # 点击添加成员
+        driver.find_element_by_link_text('添加成员').click()
+        # 点击'+'
+        driver.find_element_by_xpath('//a[@class= "member_colLeft_top_addBtnWrap js_create_dropdown"]').click()
+        # 点击添加部门
+        driver.find_element_by_link_text('添加部门').click()
+        # 输入部门名称
+        driver.find_element_by_xpath(
+            '//form[@onsubmit="return false"]//input[@class="qui_inputText ww_inputText"]').send_keys(
+            f'{departmentname}')
+        # 点击部门选择下拉框
+        driver.find_element_by_xpath('//a[@class= "qui_btn ww_btn ww_btn_Dropdown js_toggle_party_list"]').click()
+        driver.find_element_by_xpath('//form//a[@id="1688851092980127_anchor"]').click()
+        # 实例化TouchActions ActionChains
+        action = TouchActions(driver)
+        action1 = ActionChains(driver)
+        # 定义需要拖住不放的元素和需要移动的元素
+        drag_element = driver.find_element_by_xpath('//div[@class= "qui_dialog_head ww_dialog_head"]')
+        # 向Y轴移动300距离
+        action1.drag_and_drop_by_offset(drag_element, 0, 300).perform()
+        # #点击取消
+        # driver.find_element_by_xpath('//a[@d_ck="cancel"]').click()
+        # 点击确定
+        driver.find_element_by_xpath('//a[@d_ck="submit"]').click()
+        # 点击已经新增的部门
+        driver.find_element_by_xpath(
+            f'//a[text()="{departmentname}"]').click()
+        b=driver.find_element_by_xpath(f'//span[text()="{departmentname}"]')
+
+        try:
+            # 获取文本值和随机的账号名字做断言
+            assert str(departmentname) == (b.text)
+            print('添加部门成功啦！！！')
+        except Exception as f:
+            print(f'添加部门失败了，错误信息是{f}')
+        # if b :
+        #     print('添加部门成功')
+        # else:
+        #     print('添加部门失败')

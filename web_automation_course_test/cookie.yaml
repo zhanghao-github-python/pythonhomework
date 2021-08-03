@@ -1,47 +1,37 @@
 - domain: .qq.com
-  expiry: 1627476470
+  expiry: 1628083696
+  httpOnly: false
+  name: _gid
+  path: /
+  secure: false
+  value: GA1.2.1077292075.1627997296
+- domain: .work.weixin.qq.com
+  httpOnly: true
+  name: wwrtx.refid
+  path: /
+  secure: false
+  value: '8883502351693913'
+- domain: .qq.com
+  expiry: 1627997356
   httpOnly: false
   name: _gat
   path: /
   secure: false
   value: '1'
 - domain: .work.weixin.qq.com
+  expiry: 1659533295
   httpOnly: false
-  name: wwrtx.cs_ind
+  name: wwrtx.c_gdpr
   path: /
   secure: false
-  value: ''
-- domain: .work.weixin.qq.com
+  value: '0'
+- domain: .qq.com
+  expiry: 1691069296
   httpOnly: false
-  name: wwrtx.vid
+  name: _ga
   path: /
   secure: false
-  value: '1688850326149851'
-- domain: .work.weixin.qq.com
-  httpOnly: true
-  name: wwrtx.vst
-  path: /
-  secure: false
-  value: yR1DGBS2r1KdLp7sKdlqFjuD5av0IqP3Uvv0MsQeyWDs5U0iOcVCzbjUzxLgOlH-M6tMgod9FnNzOFXe-Wpi7GCV_k-8fD97-bhycOZ04I0l55BXOSNG3y9DKqW8ixW2Jcy8-INx2vmZp44ec8Cpz1Fob26iYqZMcsF6xl0eH_4BQmEy6nX0C2KlnbXaFIzlG3bvwxEhpyP8_6ag3w457hbxLehP0KQm5BosWRj6Z_9WxKv-bzoxc1CwDuXi5gpg7hgBSDuHwpt4BR7UJv-s9A
-- domain: .work.weixin.qq.com
-  httpOnly: false
-  name: wxpay.vid
-  path: /
-  secure: false
-  value: '1688850326149851'
-- domain: .work.weixin.qq.com
-  httpOnly: false
-  name: wxpay.corpid
-  path: /
-  secure: false
-  value: '1970325082477064'
-- domain: .work.weixin.qq.com
-  expiry: 1659012076
-  httpOnly: false
-  name: Hm_lvt_9364e629af24cb52acc78b43e8c9f77d
-  path: /
-  secure: false
-  value: 1627402754,1627403190,1627404330,1627476045
+  value: GA1.2.247403568.1627997296
 - domain: .work.weixin.qq.com
   httpOnly: true
   name: wwrtx.ref
@@ -49,54 +39,9 @@
   secure: false
   value: direct
 - domain: .work.weixin.qq.com
-  httpOnly: true
-  name: wwrtx.ltype
-  path: /
-  secure: false
-  value: '1'
-- domain: .work.weixin.qq.com
-  httpOnly: false
-  name: wwrtx.d2st
-  path: /
-  secure: false
-  value: a3489576
-- domain: .work.weixin.qq.com
-  httpOnly: true
-  name: wwrtx.refid
-  path: /
-  secure: false
-  value: '31405095522660772'
-- domain: .work.weixin.qq.com
-  httpOnly: true
-  name: wwrtx.sid
-  path: /
-  secure: false
-  value: 62KCDElrAnEIMnF03sCZ_WSUV6z_F5vZ-ey8Xty42T657qnSlZdZc8kdub5KmG2t
-- domain: .qq.com
-  expiry: 1690548410
-  httpOnly: false
-  name: _ga
-  path: /
-  secure: false
-  value: GA1.2.21920054.1626510825
-- domain: .work.weixin.qq.com
-  expiry: 1658046821
-  httpOnly: false
-  name: wwrtx.c_gdpr
-  path: /
-  secure: false
-  value: '0'
-- domain: .work.weixin.qq.com
-  expiry: 1630068412
+  expiry: 1630589297
   httpOnly: false
   name: wwrtx.i18n_lan
   path: /
   secure: false
   value: zh
-- domain: .qq.com
-  expiry: 1627562810
-  httpOnly: false
-  name: _gid
-  path: /
-  secure: false
-  value: GA1.2.623901333.1627400139
