@@ -162,7 +162,7 @@ class Test_Add_Member:
             f'//a[text()="{departmentname}"]').click()
         b = driver.find_element_by_xpath(f'//span[text()="{departmentname}"]')
         try:
-            # 获取文本值和随机的账号名字做断言
+            # 获取文本值和随机的部门名字做断言
             assert str(departmentname) == (b.text)
             print('添加部门成功啦！！！')
         except Exception as f:
