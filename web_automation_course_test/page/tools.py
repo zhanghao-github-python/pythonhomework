@@ -15,6 +15,7 @@ E-mail: zh13997821732@163.com
 import random
 
 
+# 获取随机邮箱
 def get_random_email():
     email_num = ''
     for i in range(8):
@@ -24,9 +25,8 @@ def get_random_email():
     email = email_num + '@163.com'
     return email
 
-    # 封装获取随机账号
 
-
+# 封装获取随机账号
 def get_random_number():
     num1 = ''
     # 预置12位数的账号
@@ -36,9 +36,10 @@ def get_random_number():
         s = str(random.choice([num]))
         num1 += s
     return num1
-def get_random_account():
 
-    # 封装获取随机部门名称
+
+# 获取随机姓名
+def get_random_account():
     account = ""
     # 生成随机的8位数，8次循环
     for i in range(8):
@@ -52,6 +53,8 @@ def get_random_account():
     accountzh = account + 'zh'
     return accountzh
 
+
+# 获取随机的部门名称
 def get_department_name():
     first_name = ["王", "李", "张", "刘", "赵", "蒋", "孟", "陈", "徐", "杨", "沈", "马", "高", "殷", "上官", "钟", "常"]
     name2 = random.choice(first_name)

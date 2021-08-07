@@ -22,7 +22,7 @@ from web_automation_course_test.page.base_page import BasePage
 class MemberPage(BasePage):
 
     def add_member(self,email,accountzh,number):
-
+        # 输入姓名
         self.find_by_id('username').send_keys(accountzh)
         # 输入账号
         self.find_by_css('#memberAdd_acctid').send_keys(number)

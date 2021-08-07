@@ -25,18 +25,19 @@ class Test_Po:
     def setup(self):
         # 实例化MainPage类
         self.main_page = MainPage()
-        self.email = get_random_email()
-        self.accountzh = get_random_account()
-        self.number = get_random_number()
-        self.departmentname = get_department_name()
+        self.email = get_random_email()  # 获取邮箱
+        self.accountzh = get_random_account()  # 获取姓名
+        self.number = get_random_number()  # 账号
+        self.departmentname = get_department_name()  # 获取部门
 
     # @pytest.mark.skip
     def test_add_member(self):
+        # 进入添加成员界面添加成员
         self.main_page.goto_add_member().add_member(self.email, self.accountzh, self.number)
         sleep(3)
         # 获取邮箱元素
         getemail_success = self.main_page.find_by_xpath(f'//*[@title="{self.email}"]')
-
+        # 用邮箱号码和获取的邮箱账号断言
         try:
             assert self.email == getemail_success.text
             print('添加成员成功')
@@ -44,6 +45,7 @@ class Test_Po:
             print(f'添加失败了,错误信息是{f}')
 
     def test_add_department(self):
+        # 进入通讯录页面，添加部门
         self.main_page.goto_address_list().add_department(self.departmentname)
         sleep(3)
         # 获取部门名称
