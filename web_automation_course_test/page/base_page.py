@@ -33,6 +33,7 @@ class BasePage:
             option.debugger_address = "127.0.0.1:9222"
             self.driver = webdriver.Chrome(options=option)
             self.driver.get(self.url)
+            self.driver.maximize_window()
             self.driver.implicitly_wait(5)
         # 如果传递了 driver ,说明不是第一次调用，比如企业微信官网 -> 登陆界面
         else:
@@ -51,12 +52,12 @@ class BasePage:
         return self.driver.find_element_by_xpath(xpath)
 
         # 封装link_text方法
-
     def find_by_link_text(self, text):
         return self.driver.find_element_by_link_text(text)
 
     def find_by_css(self,css):
-        return  self.driver.find_element_by_css_selector(css)
+        return self.driver.find_element_by_css_selector(css)
+
         # 封装退出浏览器方法
     def quit_browser(self):
         return self.driver.quit()
