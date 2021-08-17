@@ -71,8 +71,9 @@ class TestDemo:
                                  'scrollable(true).instance(0)).'
                                  'scrollIntoView(new UiSelector().'
                                  f'text("{accountzh}").instance(0));').click()
-        # 找到邮箱
+        # 点击后找到邮箱文本值
         email_final = self.driver.find_element_by_xpath(f'//*[@text="{email}"]').text
+        # 文本值断言
         try:
             assert  email == email_final
             print('添加成功')
