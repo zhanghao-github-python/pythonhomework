@@ -145,6 +145,7 @@ class Test_Add_Member:
             f'{departmentname}')
         # 点击部门选择下拉框
         driver.find_element_by_xpath('//a[@class= "qui_btn ww_btn ww_btn_Dropdown js_toggle_party_list"]').click()
+        # 点击所属部门
         driver.find_element_by_xpath('//form//a[@id="1688851092980127_anchor"]').click()
         # 实例化TouchActions ActionChains
         action = TouchActions(driver)
