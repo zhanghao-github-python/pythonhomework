@@ -75,7 +75,7 @@ class TestDemo:
                                  'text("保存").instance(0));').click()
         # 强制等待1.5秒
         sleep(1.5)
-        print(self.driver.page_source)  # 打印当前页面信息
+        # print(self.driver.page_source)  # 打印当前页面信息
         # 定位'添加成功'
         addmember_success = self.driver.find_element_by_xpath("//*[contains(@text,'添加成功')]").text
         try:
