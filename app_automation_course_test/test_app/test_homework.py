@@ -40,6 +40,8 @@ class TestDemo:
         desire_cap['settings[waitForIdleTimeout]'] = 10
         self.driver = webdriver.Remote("http://192.168.8.1:4723/wd/hub", desire_cap)
         self.driver.implicitly_wait(10)
+    def teardown(self):
+        self.driver.quit()
 
     def test_addmember(self):
         f = Faker(locale='zh_CN')  # 实例化Faker函数
