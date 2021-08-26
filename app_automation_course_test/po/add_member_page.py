@@ -15,8 +15,7 @@ E-mail: zh13997821732@163.com
 # 添加成员页面
 from selenium.webdriver.common.by import By
 
-
-from app_automation_course_test.po.base_page import  BasePage
+from app_automation_course_test.po.base_page import BasePage
 from app_automation_course_test.po.edit_member_page import EditorMember
 
 
@@ -33,5 +32,5 @@ class AddMember(BasePage):
 
     def click_back(self):
         from app_automation_course_test.po.address_list_page import AddressPage
-        self.find_and_click(By.XPATH,'//*[contains(@text,"添加成员")]/../../../../android.widget.TextView')
+        self.find_and_click(By.XPATH, '//*[contains(@text,"添加成员")]/../../../../android.widget.TextView')
         return AddressPage(self.driver)
