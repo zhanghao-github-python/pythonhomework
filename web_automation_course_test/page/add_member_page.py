@@ -24,7 +24,8 @@ from web_automation_course_test.page.base_page import BasePage
 
 class MemberPage(BasePage):
     # @pytest.mark.parametrize("email1,accountzh,number", get_datas()['datas'])
-    def add_member(self,email,accountzh,number):
+
+     def add_member(self,email,accountzh,number):
         # 输入姓名
         self.find_by_id('username').send_keys(accountzh)
         # 输入账号
@@ -39,7 +40,7 @@ class MemberPage(BasePage):
         self.find_by_link_text('保存').click()
         sleep(1)
 
-    def add_department(self,departmentname):
+     def add_department(self,departmentname):
         # 点击'+'
         self.find_by_xpath('//a[@class= "member_colLeft_top_addBtnWrap js_create_dropdown"]').click()
         # 点击添加部门
