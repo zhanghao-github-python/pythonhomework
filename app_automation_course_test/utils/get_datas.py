@@ -22,8 +22,17 @@ class GetData:
     def get_name(self):
         return self.faker.name()  # 姓名
 
+    def get_department_name(self):
+        a = self.faker.name()
+        return  self.faker.name()+'部门'
+
     def get_email(self):
         return self.faker.company_email()  # 随机邮箱
 
     def get_random_number(self):
         return self.faker.random_int(100000000, 1000000000)  # 随机的9位数
+
+
+if __name__ == '__main__':
+    a = GetData()
+    print(a.get_department_name())

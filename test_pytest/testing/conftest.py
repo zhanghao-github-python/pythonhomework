@@ -40,7 +40,8 @@ def get_calc_object():
     # teardown
     logging.info("结束测试")
 
-
+# hook 函数 收集所有的用例并修改
+# 在收集阶段去改变它的编码格式，默认的自动执行
 def pytest_collection_modifyitems(session, config, items: list):
     # print(items)
     for item in items:
