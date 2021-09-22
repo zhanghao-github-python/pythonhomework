@@ -35,11 +35,11 @@ class TestWework:
 
     # @pytest.mark.skip
     @pytest.mark.parametrize(
-        "departmentname,parentid,id",
-        [["正常场景部门名称测试", 1, 23], ['', 1, 24]],
+        "departmentname,parentid,id,expect",
+        [["正常场景部门名称测试", 1, 23, 0], ['', 1, 24, 40058]],
         ids=["正常场景部门测试", "异常场景部门测试"]
     )
-    def test_createdepartment(self, departmentname, parentid, id):  # 创建部门
+    def test_createdepartment(self, departmentname, parentid, id, expect):  # 创建部门
         url = 'https://qyapi.weixin.qq.com/cgi-bin/department/create'
         params = {
             'access_token': self.token
@@ -51,10 +51,10 @@ class TestWework:
         }
         r = requests.post(url=url, params=params, json=data)
         print(r.json())
-        # assert r.json()["errcode"] == 0
-        try:
-            assert r.json()["errcode"] == 0
-            print('添加部门成功')
-        except Exception:
-            errmsg = r.json()['errmsg']
-            print(f'添加部门失败错误信息是{errmsg}')
+        assert r.json()["errcode"] == expect
+        # try:
+        #     assert r.json()["errcode"] == 0
+        #     print('添加部门成功')
+        # except Exception:
+        #     errmsg = r.json()['errmsg']
+        #     print(f'添加部门失败错误信息是{errmsg}')
