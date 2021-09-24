@@ -1,0 +1,64 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "部门管理模块",
+    "children" : [ {
+      "name" : "部门场景接口用例",
+      "children" : [ {
+        "name" : "test_department_scene",
+        "uid" : "87f8ed7cdf76d797",
+        "parentUid" : "87c29bde89a35a7cdb8ebe21b7a5c376",
+        "status" : "passed",
+        "time" : {
+          "start" : 1632419713716,
+          "stop" : 1632419714525,
+          "duration" : 809
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "87c29bde89a35a7cdb8ebe21b7a5c376"
+    }, {
+      "name" : "测试接口用例",
+      "children" : [ {
+        "name" : "test_001",
+        "uid" : "4f81bd17fff06366",
+        "parentUid" : "12fbb12522f9eb4f1854757e17df2dfb",
+        "status" : "passed",
+        "time" : {
+          "start" : 1632419714528,
+          "stop" : 1632419714528,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "12fbb12522f9eb4f1854757e17df2dfb"
+    } ],
+    "uid" : "471fba78a1aec91246d64d37b3428672"
+  }, {
+    "name" : "标签模块",
+    "children" : [ {
+      "name" : "标签场景用例",
+      "children" : [ {
+        "name" : "test_tags_scene",
+        "uid" : "85c8523a4920b96d",
+        "parentUid" : "ef7a5743a1a921031f09724aa2812628",
+        "status" : "passed",
+        "time" : {
+          "start" : 1632419714828,
+          "stop" : 1632419716609,
+          "duration" : 1781
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "ef7a5743a1a921031f09724aa2812628"
+    } ],
+    "uid" : "8ccb597416ebbc95c67bbf61eb206f37"
+  } ]
+}

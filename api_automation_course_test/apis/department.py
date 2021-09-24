@@ -14,8 +14,10 @@ E-mail: zh13997821732@163.com
 """
 import requests
 
-from api_automation_course_test.apis.test_wework1 import WeWork
+from api_automation_course_test.apis.test_wework import WeWork
 from jsonpath import jsonpath
+
+from api_automation_course_test.testcase.utils import Utils
 
 
 class Department(WeWork):
@@ -27,7 +29,13 @@ class Department(WeWork):
         :return:
         """
         create_url = f'https://qyapi.weixin.qq.com/cgi-bin/department/create?access_token={self.token}'
-        r = requests.post(url=create_url, json=data)
+        # r = requests.post(url=create_url, json=data)
+        req = {
+            "method": "POST",
+            "url": f"{create_url}",
+            "json": data
+        }
+        r=self.send_api(req)
         return r.json()
 
     def update_department(self, data):
@@ -37,7 +45,12 @@ class Department(WeWork):
         :return:
         """
         updata_url = f"https://qyapi.weixin.qq.com/cgi-bin/department/update?access_token={self.token}"
-        r = requests.post(url=updata_url, json=data)
+        req = {
+            "method": "POST",
+            "url": f"{updata_url}",
+            "json": data
+        }
+        r = self.send_api(req)
         return r.json()
 
     def get_departmentlist(self):
@@ -47,7 +60,11 @@ class Department(WeWork):
         :return:
         """
         get_url = f"https://qyapi.weixin.qq.com/cgi-bin/department/list?access_token={self.token}"
-        r = requests.get(url=get_url)
+        req = {
+            "method": "GET",
+            "url": f"{get_url}"
+        }
+        r = self.send_api(req)
         return r.json()
 
     def delete_department(self, depart_id):
@@ -56,7 +73,11 @@ class Department(WeWork):
         :return:
         """
         del_url = f"https://qyapi.weixin.qq.com/cgi-bin/department/delete?access_token={self.token}&id={depart_id}"
-        r = requests.get(url=del_url)
+        req = {
+            "method": "GET",
+            "url": f"{del_url}"
+        }
+        r = self.send_api(req)
         return r.json()
 
     def clear_department(self):
@@ -65,7 +86,7 @@ class Department(WeWork):
         :return:
         """
         depart_list = self.get_departmentlist()
-        id_list = jsonpath(depart_list, "$..id")
+        id_list = Utils.base_jsonpath(depart_list, "$..id")
         for i in id_list:
             if i != 1 and i != 2:
                 self.delete_department(i)
@@ -73,6 +94,3 @@ class Department(WeWork):
         return id_list
 
 
-if __name__ == '__main__':
-    a = Department()
-    print(a.clear_department())

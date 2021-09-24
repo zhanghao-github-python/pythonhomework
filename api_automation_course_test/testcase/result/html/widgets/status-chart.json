@@ -1,0 +1,31 @@
+[ {
+  "uid" : "85c8523a4920b96d",
+  "name" : "test_tags_scene",
+  "time" : {
+    "start" : 1632419714828,
+    "stop" : 1632419716609,
+    "duration" : 1781
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "87f8ed7cdf76d797",
+  "name" : "test_department_scene",
+  "time" : {
+    "start" : 1632419713716,
+    "stop" : 1632419714525,
+    "duration" : 809
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4f81bd17fff06366",
+  "name" : "test_001",
+  "time" : {
+    "start" : 1632419714528,
+    "stop" : 1632419714528,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

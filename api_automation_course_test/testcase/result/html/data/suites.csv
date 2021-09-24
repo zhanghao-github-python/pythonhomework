@@ -1,0 +1,9 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Sep 24 01:55:14 CST 2021","Fri Sep 24 01:55:16 CST 2021","1781","","test_tags","TestTags","","","test_tags_scene",""
+"passed","Fri Sep 24 01:55:13 CST 2021","Fri Sep 24 01:55:14 CST 2021","809","","test_department","TestDepartment","","","test_department_scene","
+        pytest --alluredir=./result/result 生成结果的命令在当前目录下生成result目录
+        allure generate --clean result -o result/html  生成html
+        --clean result报告覆盖之前的结果
+        :return:
+        "
+"passed","Fri Sep 24 01:55:14 CST 2021","Fri Sep 24 01:55:14 CST 2021","0","","test_department","TestDepartment","","","test_001",""
