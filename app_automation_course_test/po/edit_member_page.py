@@ -36,10 +36,11 @@ class EditorMember(BasePage):
         from app_automation_course_test.po.add_member_page import AddMember
         # 返回添加成员页面
         return AddMember(self.driver)
+
     def delete_member(self):
         from app_automation_course_test.po.address_list_page import AddressPage
         # 点击删除成员
         self.swip_and_click("删除成员")
         # 点击确定删除
-        self.find_and_click(By.XPATH,'//*[contains(@text,"确定")]')
+        self.find_and_click(By.XPATH, '//*[contains(@text,"确定")]')
         return AddressPage(self.driver)
